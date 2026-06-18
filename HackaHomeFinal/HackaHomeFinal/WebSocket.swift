@@ -1,6 +1,6 @@
 //
-//  webSocket.swift
-//  projetoFinal websocket
+//  WebSocket.swift
+//  HackaHomeFinal
 //
 //  Created by Turma02-18 on 18/06/26.
 //
@@ -21,6 +21,7 @@ class RFIDViewModel: ObservableObject {
     @Published var uidAtual = ""
     @Published var acessoLiberado = false
     @Published var status = "Aguardando tag RFID..."
+    @Published var valorGas = 0
     
     private var webSocketTask: URLSessionWebSocketTask?
     
@@ -87,7 +88,6 @@ class RFIDViewModel: ObservableObject {
     
     private func processarMensagem(_ texto: String) {
         
-        @Published var valorGas = 0
         print("Mensagem recebida:", texto)
         
         let mensagem = texto.trimmingCharacters(in: .whitespacesAndNewlines)
